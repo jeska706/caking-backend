@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
-  resources :cakes
-  resources :users
+    resources :cakes, only: [:index, :show]
+    resources :users do
+        resources :creations
+    end
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
