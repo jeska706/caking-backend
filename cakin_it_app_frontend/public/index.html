@@ -8,57 +8,74 @@
         <script type="text/javascript" src="app.js"></script>
         <title>Cakin' It</title>
     </head>
-    <body ng-controller="mainController as ctrl">
+    <body>
         <div class="container">
 
             <!-- LANDING PAGE -->
             <div class="">
+                <!-- LOGO SECTION -->
                 <div class="">
-                    <h1>CAKIN' IT</h1>
+                    <div class="">
+                        <h1>CAKIN' IT</h1>
+                    </div>
                 </div>
-            </div>
-            <!-- END OF LANDING PAGE -->
+                <!-- END OF LANDING PAGE -->
 
-            <!-- NAV -->
-            <!-- if clicked go to  -->
-            <div class="">
+                <!-- NAV -->
+                <!-- if clicked go to  -->
                 <div class="">
-                    <nav>
+                    <div class="">
+                        <nav>
 
-                    </nav>
+                        </nav>
+                    </div>
                 </div>
-            </div>
-            <!-- END OF NAV -->
+                <!-- END OF NAV -->
 
-            <!-- REGISTER -->
-            <!-- once registered login -->
-            <div class="">
+                <!-- REGISTER -->
+                <!-- once registered login -->
                 <div class="">
-
-                </div>
-            </div>
-
-            <!-- LOGIN -->
-            <!-- if logged in go to /users/:id -->
-            <div class="">
-                <div class="">
-
-                </div>
-            </div>
-
-            <!-- USERS -->
-            <div class="">
-                <div class="">
-                    <!-- EDIT USER BUTTON -->
-                    <!-- DELETE USER BUTTON -->
-                    <!-- CREATION BUTTON -->
-                    <!-- if clicked go to create -->
-
-                    <!-- CREATION  -->
                     <div class="">
 
                     </div>
-                    <!-- END OF CREATION -->
+                </div>
+
+                <!-- LOGIN -->
+                <!-- if logged in go to /users/:id -->
+                <div class="" ng-model="hideUsers">
+                    <div class="">
+
+                    </div>
+                </div>
+
+                <!-- SEARCH SECTION -->
+                <div class="">
+                    Search: <input type="text" placeholder="Inspiration Gallery" ng-model="searchCake"/>
+                </div>
+                <!-- END OF SEARCH -->
+            </div>
+
+            <!-- USERS -->
+            <div class="" ng-hide="hideUsers">
+                <div class="">
+                    <!-- EDIT USER BUTTON -->
+                    <!-- DELETE USER BUTTON -->
+
+                    <!-- USERS GALLERY -->
+                    <div class="">
+
+                    </div>
+
+                    <!-- CREATION BUTTON -->
+                    <!-- if clicked go to create -->
+
+                    <div class="">
+                        <!-- CREATION  -->
+                        <div class="">
+                            <!-- SAVE, DELETE, EMAIL BUTTONS -->
+                        </div>
+                        <!-- END OF CREATION -->
+                    </div>
 
                 </div>
             </div>
@@ -74,10 +91,12 @@
             <!-- END OF ABOUT -->
 
             <!-- INSPRIATION GALLERY -->
-            <div class="gallery" ng-repeat='cake in ctrl.cakes'>
-                <h3>{{ cake.title }}</h3>
-                <!-- NEED TO FIX IMAGES, NOT HITTING CORRECT ROUTE -->
-                <!-- <img src="{{ cake.img }}"/> -->
+            <div class="" ng-controller="cakeController as ctrl">
+                <div class="gallery" ng-repeat='cake in ctrl.cakes | filter: searchCake'>
+                    <h3>{{ cake.title }}</h3>
+                    <!-- NEED TO FIX IMAGES, NOT HITTING CORRECT ROUTE -->
+                    <!-- <img src="{{ cake.img }}"/> -->
+                </div>
             </div>
             <!-- END OF GALLERY -->
 
