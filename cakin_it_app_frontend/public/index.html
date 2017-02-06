@@ -14,20 +14,30 @@
         <div class="container">
 
 <!------------------------------ HOME SECTION ----------------------------------->
-            <div class="navbar navbar-default">
-                <div class="navbar-header">
-                    <nav>
-                        <div class="form-group has-feedback navbar-left">
-                            <input class="form-control" type="text" placeholder="Search Inspiration Gallery" ng-model="searchCake"/>
-                            <i class="glyphicon glyphicon-search pull-right form-control-feedback"></i>
+            <div class="container">
+                <nav id="mainNav" class="navbar navbar-default navbar-fixed-top ">
+                    <div class="container">
+                        <div class="navbar-header">
+                            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                                <span class="glyphicon glyphicon-align-justify"></span>
+                            </button>
                         </div>
-                        <div id="modalBtn">
-                            <button class="btn btn-sm pull-right" data-target="#navModal" data-toggle="modal"><span class="glyphicon glyphicon-align-justify"></span></button>
-                            <button class="btn btn-sm pull-right" data-target="#registerModal" data-toggle="modal">Register</button>
-                            <button class="btn btn-sm pull-right" data-target="#loginModal" data-toggle="modal">Login</button>
+                        <div class="navbar-collapse collapse">
+                            <div class="nav navbar-nav">
+                                <button class="btn pull-right" data-target="#navModal" data-toggle="modal"><span class="glyphicon glyphicon-align-justify"></span></button>
+                                <button class="btn pull-right" data-target="#registerModal" data-toggle="modal">Register</button>
+                                <button class="btn pull-right" data-target="#loginModal" data-toggle="modal">Login</button>
+                            </div>
+                            <!-- SEARCH AREA -->
+                            <form id="navSearch" class="navbar-form pull-right" role="search" action="index.html" method="post">
+                                <div class="form-group has-feedback navbar-left">
+                                    <input class="form-control" type="text" placeholder="Inspiration Gallery" ng-model="searchCake"/>
+                                    <i class="glyphicon glyphicon-search pull-right form-control-feedback"></i>
+                                </div>
+                            </form>
                         </div>
-                    </nav>
-                </div>
+                    </div>
+                </nav>
             </div>
             <!-- <div infinite-scroll="" infinite-scroll-distance="1"> -->
                 <div class="" id="home">
