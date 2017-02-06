@@ -3,15 +3,19 @@ console.log("Connect app.js");
 var app = angular.module('cakinItApp', []);
 //"ngInfiniteScroll"
 
-app.controller('loginController', function(){
-    var controller = this;
-    console.log(controller);
-    controller.login = function(login){
-        if(!login){
-            return login;
-        }
-    }
-});
+// NEEDS TO BE FINISHED
+
+// app.controller('loginController', function(){
+//     var controller = this;
+//     console.log(controller);
+//     controller.login = function(login){
+//         if(!login){
+//             return login;
+//         }
+//     }
+// });
+
+//set up hide login, register modal on login
 
 app.controller('cakeController', ['$http', function($http){
     // this.message = "Cake controller connected"

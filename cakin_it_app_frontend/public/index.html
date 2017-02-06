@@ -13,35 +13,49 @@
     <body>
         <div class="container">
 
-            <!-- LANDING PAGE -->
-            <button class="btn btn-sm pull-right" data-target="#registerModal" data-toggle="modal">Register</button>
-            <button class="btn btn-sm pull-right" data-target="#loginModal" data-toggle="modal">Login</button>
-
-            <!-- <div infinite-scroll="" infinite-scroll-distance="1"> -->
-                <div class="">
-                    <!-- LOGO SECTION -->
-                    <div class="">
-                        <div class="">
-                            <h1>CAKIN' IT</h1>
+<!------------------------------ HOME SECTION ----------------------------------->
+            <div class="navbar navbar-default">
+                <div class="navbar-header">
+                    <nav>
+                        <div class="form-group has-feedback navbar-left">
+                            <input class="form-control" type="text" placeholder="Search Inspiration Gallery" ng-model="searchCake"/>
+                            <i class="glyphicon glyphicon-search pull-right form-control-feedback"></i>
                         </div>
-                    </div>
-                    <!-- END OF LANDING PAGE -->
+                        <div id="modalBtn">
+                            <button class="btn btn-sm pull-right" data-target="#navModal" data-toggle="modal"><span class="glyphicon glyphicon-align-justify"></span></button>
+                            <button class="btn btn-sm pull-right" data-target="#registerModal" data-toggle="modal">Register</button>
+                            <button class="btn btn-sm pull-right" data-target="#loginModal" data-toggle="modal">Login</button>
+                        </div>
+                    </nav>
+                </div>
+            </div>
+            <!-- <div infinite-scroll="" infinite-scroll-distance="1"> -->
+                <div class="" id="home">
+
+                    <!-- LOGO SECTION -->
+                        <div class="">
+                            <div class="" id="logo">
+                                <h1>CAKING</h1>
+                            </div>
+                        </div>
 
                     <!-- NAV -->
                     <!-- if clicked go to  -->
-                    <div class="nav-stacked">
-                        <div class="navbar-fixed-left">
-                            <nav>
-                                <ul>
-                                    <li><input type="text" placeholder="Inspiration Gallery" ng-model="searchCake"/><span class="glyphicon glyphicon-search"></span> </li>
-                                    <li>HOME</li>
-                                    <li>ABOUT</li>
-                                    <li>INSPIRATION GALLERY</li>
-                                    <li>FIND A BAKERY</li>
-                                    <li>FIND A CLASS</li>
-                                    <li>CONTACT US</li>
-                                </ul>
-                            </nav>
+                    <div class="modal fade" data-keyboard="false" data-backdrop="static" id="navModal" tabindex="-1">
+                        <div class="modal-dialog" ng-model="login">
+                            <div class="modal-content">
+                                <div class="modal-body">
+                                    <button class="close" data-dismiss="modal">&times;</button>
+                                    <ul>
+                                        <li><a href="#home">HOME</a></li>
+                                        <li><a href="#about">ABOUT</a></li>
+                                        <li><a href="#inspireGallery">INSPIRATION GALLERY</a></li>
+                                        <li><a href="#findA">FIND A BAKERY</a></li>
+                                        <li><a href="#findA">FIND A CLASS</a></li>
+                                        <li><a href="#contact">CONTACT US</a></li>
+                                    </ul>
+                                </div>
+                            </div>
                         </div>
                     </div>
                     <!-- END OF NAV -->
@@ -49,60 +63,60 @@
 
                     <!-- REGISTER MODAL -->
 
-                    <div class="modal fade" data-keyboard="false" data-backdrop="static" id="registerModal" tabindex="-1">
-                        <div class="modal-dialog" ng-model="register">
-                            <div class="modal-content">
-                                <div class="modal-header">
-                                    <button class="close" data-dismiss="modal">&times;</button>
-                                    <h4 class="modal-title">Register</h4>
-                                </div>
-                                <div class="modal-body">
-                                    <form>
-                                        <div class="form-group">
-                                            <label for="inputUsername">Username</label>
-                                            <input class="form-control" type="text" id="inputUsername">
-                                        </div>
-                                        <div class="form-group">
-                                            <label for="inputPassword">Password</label>
-                                            <input class="form-control" type="password" id="inputPassword">
-                                        </div>
-                                    </form>
-                                </div>
-                                <div class="modal-footer">
-                                    <button class="btn" type="submit">Register</button>
+                        <div class="modal fade" data-keyboard="false" data-backdrop="static" id="registerModal" tabindex="-1">
+                            <div class="modal-dialog" ng-model="register">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <button class="close" data-dismiss="modal">&times;</button>
+                                        <h4 class="modal-title">Register</h4>
+                                    </div>
+                                    <div class="modal-body">
+                                        <form>
+                                            <div class="form-group">
+                                                <label for="inputUsername">Username</label>
+                                                <input class="form-control" type="text" id="inputUsername">
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="inputPassword">Password</label>
+                                                <input class="form-control" type="password" id="inputPassword">
+                                            </div>
+                                        </form>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button class="btn" type="submit">Register</button>
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
                     <!-- once registered login -->
 
                     <!-- LOGIN -->
 
-                    <div class="modal fade" data-keyboard="false" data-backdrop="static" id="loginModal" tabindex="-1">
-                        <div class="modal-dialog" ng-model="login">
-                            <div class="modal-content">
-                                <div class="modal-header">
-                                    <button class="close" data-dismiss="modal">&times;</button>
-                                    <h4 class="modal-title">Login</h4>
-                                </div>
-                                <div class="modal-body">
-                                    <form>
-                                        <div class="form-group">
-                                            <label for="inputUsername2">Username</label>
-                                            <input class="form-control" type="text" id="inputUsername2">
-                                        </div>
-                                        <div class="form-group">
-                                            <label for="inputPassword2">Password</label>
-                                            <input class="form-control" type="password" id="inputPassword2">
-                                        </div>
-                                    </form>
-                                </div>
-                                <div class="modal-footer">
-                                    <button class="btn" type="submit">Login</button>
+                        <div class="modal fade" data-keyboard="false" data-backdrop="static" id="loginModal" tabindex="-1">
+                            <div class="modal-dialog" ng-model="login">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <button class="close" data-dismiss="modal">&times;</button>
+                                        <h4 class="modal-title">Login</h4>
+                                    </div>
+                                    <div class="modal-body">
+                                        <form>
+                                            <div class="form-group">
+                                                <label for="inputUsername2">Username</label>
+                                                <input class="form-control" type="text" id="inputUsername2">
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="inputPassword2">Password</label>
+                                                <input class="form-control" type="password" id="inputPassword2">
+                                            </div>
+                                        </form>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button class="btn" type="submit">Login</button>
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
                     <!-- if logged in go to /users/:id -->
 
                     <!-- <div class="" ng-model="hideUsers">
@@ -116,67 +130,69 @@
 
                 </div>
             <!-- </div> -->
+<!--------------------------------- END OF HOME ---------------------------------------->
 
-            <!-- USERS -->
+
+<!----------------------------------- USERS -------------------------------------------->
             <div class="" ng-hide="hideUsers">
                 <div class="">
+
+
                     <!-- EDIT USER BUTTON -->
                     <!-- DELETE USER BUTTON -->
-
                     <!-- USERS GALLERY -->
-                    <div class="">
+                        <div class="">
 
-                    </div>
+                        </div>
 
                     <!-- CREATION BUTTON -->
                     <!-- if clicked go to create -->
-
-                    <div class="">
-                        <!-- CREATION  -->
                         <div class="">
-                            <!-- SAVE, DELETE, EMAIL BUTTONS -->
+                            <!-- CREATION  -->
+                            <div class="">
+                                <!-- SAVE, DELETE, EMAIL BUTTONS -->
+                            </div>
+                            <!-- END OF CREATION -->
                         </div>
-                        <!-- END OF CREATION -->
-                    </div>
 
                 </div>
             </div>
-            <!-- END OF USERS -->
+<!------------------------------- END OF USERS ---------------------------------->
 
 
-            <!-- ABOUT PAGE -->
-            <div class="">
+<!------------------------------- ABOUT SECTION --------------------------------->
+            <div class="" id="about">
                 <div class="">
 
                 </div>
             </div>
-            <!-- END OF ABOUT -->
+<!------------------------------- END OF ABOUT ---------------------------------->
 
-            <!-- INSPRIATION GALLERY -->
-            <div class="" ng-controller="cakeController as ctrl">
+<!---------------------------- INSPRIATION GALLERY ------------------------------>
+            <div class="" id="inspireGallery"ng-controller="cakeController as ctrl">
                 <div class="gallery" ng-repeat='cake in ctrl.cakes | filter: searchCake'>
                     <!-- <h3>{{ cake.title }}</h3> -->
                     <!-- NEED TO FIX IMAGES, NOT HITTING CORRECT ROUTE -->
                     <!-- <img src="{{ cake.img }}"/> -->
                 </div>
             </div>
-            <!-- END OF GALLERY -->
+<!----------------------------- END OF GALLERY ---------------------------------->
 
-            <!-- GOOGLE MAPS API -->
-            <div class="">
+<!---------------------------- GOOGLE MAPS API ---------------------------------->
+            <div class="" id="findA">
                 <div class="">
 
                 </div>
             </div>
-            <!-- END OF API -->
+<!------------------------------ END OF API ------------------------------------->
 
-            <!-- CONTACT US  -->
-            <div class="">
+<!------------------------------ CONTACT US  ------------------------------------>
+            <div class="" id="contact">
                 <div class="">
 
                 </div>
             </div>
-            <!-- END OF CONTACT -->
+<!--------------------------- END OF CONTACT ------------------------------------->
 
         </div>
         <script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
