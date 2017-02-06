@@ -10,7 +10,7 @@
         <script type="text/javascript" src="app.js"></script>
         <title>Cakin' It</title>
     </head>
-    <body>
+    <body ng-controller="mainController as ctrl">
         <div class="container">
 
 <!------------------------------ HOME SECTION ----------------------------------->
@@ -73,7 +73,7 @@
 
                     <!-- REGISTER MODAL -->
 
-                        <div class="modal fade" data-keyboard="false" data-backdrop="static" id="registerModal" tabindex="-1">
+                        <!-- <div class="modal fade" data-keyboard="false" data-backdrop="static" id="registerModal" tabindex="-1">
                             <div class="modal-dialog" ng-model="register">
                                 <div class="modal-content">
                                     <div class="modal-header">
@@ -97,12 +97,16 @@
                                     </div>
                                 </div>
                             </div>
-                        </div>
+                        </div> -->
                     <!-- once registered login -->
 
                     <!-- LOGIN -->
-
-                        <div class="modal fade" data-keyboard="false" data-backdrop="static" id="loginModal" tabindex="-1">
+                    <form ng-submit="ctrl.login(userPass)">
+                        <input type="text" ng-model="userPass.username" placeholder="username"/>
+                        <input type="password" ng-model="userPass.password" placeholder="password"/>
+                        <input type="submit"/>
+                    </form>
+                        <!-- <div class="modal fade" data-keyboard="false" data-backdrop="static" id="loginModal" tabindex="-1">
                             <div class="modal-dialog" ng-model="login">
                                 <div class="modal-content">
                                     <div class="modal-header">
@@ -126,7 +130,7 @@
                                     </div>
                                 </div>
                             </div>
-                        </div>
+                        </div> -->
                     <!-- if logged in go to /users/:id -->
 
                     <!-- <div class="" ng-model="hideUsers">
@@ -142,12 +146,23 @@
             <!-- </div> -->
 <!--------------------------------- END OF HOME ---------------------------------------->
 
-
+<!-- <p>Welcome to Caking, {{ ctrl.user.username }}!!! </p> -->
 <!----------------------------------- USERS -------------------------------------------->
             <div class="" ng-hide="hideUsers">
                 <div class="">
+                    <h4 ng-click="ctrl.getUsers()"><a href="#">Click to go to your page</a></h4>
 
 
+
+                    <div class="">
+                        {{ ctrl.error }}
+                    </div>
+
+                    <div ng-repeat='user in ctrl.users'>
+                        <h4>Welcome to Caking, {{ user.username }} !!</h4>
+                        <!-- USERS LOGOUT -->
+                        <a href="#" ng-click="ctrl.logout()">Log Out</a>
+                    </div>
                     <!-- EDIT USER BUTTON -->
                     <!-- DELETE USER BUTTON -->
                     <!-- USERS GALLERY -->
@@ -179,7 +194,7 @@
 <!------------------------------- END OF ABOUT ---------------------------------->
 
 <!---------------------------- INSPRIATION GALLERY ------------------------------>
-            <div class="" id="inspireGallery"ng-controller="cakeController as ctrl">
+            <div class="" id="inspireGallery">
                 <div class="gallery" ng-repeat='cake in ctrl.cakes | filter: searchCake'>
                     <!-- <h3>{{ cake.title }}</h3> -->
                     <!-- NEED TO FIX IMAGES, NOT HITTING CORRECT ROUTE -->
