@@ -13,20 +13,40 @@ app.controller('mainController', ['$http', function($http){
     this.user = {};
     this.users = [];
     this.userPass = {};
+    this.aUsersPass = {};
+
+    //----------Register---------------
+    this.registered = false;
+    this.register = function(aUsersPass){
+        $http({
+            method: 'POST',
+            url: controller.url + "/users",
+            data: { user: aUsersPass.username, password: aUsersPass.password }
+        }).then(function(res){
+            console.log('this is registered res: ', res)
+            this.registered = true;
+            // this.aUsersPass = {};
+        }.bind(this));
+    }
+
+
 
     //-----------Login----------------
+
+    //set up hide login, register modal on login
     this.login = function(userPass) {
         console.log(userPass);
         $http({
             method: 'POST',
             url: controller.url + '/users/login',
-            data: { user: { username: userPass.username, password: userPass.password, email: userPass.email }},
+            data: { user: { username: userPass.username, password: userPass.password }},
         }).then(function(res){
             console.log(controller);
             console.log('this is the login res : ',res);
             this.user = res.data.user;
             console.log(this.user);//coming back Unauthorized
             localStorage.setItem('token', JSON.stringify(res.data.token));
+            // this.userPass = {};
         }.bind(this));
     }
 
@@ -70,17 +90,3 @@ app.controller('mainController', ['$http', function($http){
 
 
 }]);//------End of Main Controller----------
-
-// NEEDS TO BE FINISHED
-
-// app.controller('loginController', function(){
-//     var controller = this;
-//     console.log(controller);
-//     controller.login = function(login){
-//         if(!login){
-//             return login;
-//         }
-//     }
-// });
-
-//set up hide login, register modal on login
