@@ -2,8 +2,10 @@
 <html ng-app="cakinItApp">
     <head>
         <meta charset="utf-8">
+        <!--  BOOTSTRAP -->
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
         <link rel="stylesheet" href="style.css">
+        <!-- ANGULAR -->
         <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.1/angular.min.js"></script>
         <script type="text/javascript" src="app.js"></script>
         <title>Cakin' It</title>
@@ -12,48 +14,108 @@
         <div class="container">
 
             <!-- LANDING PAGE -->
-            <div class="">
-                <!-- LOGO SECTION -->
+            <button class="btn btn-sm pull-right" data-target="#registerModal" data-toggle="modal">Register</button>
+            <button class="btn btn-sm pull-right" data-target="#loginModal" data-toggle="modal">Login</button>
+
+            <!-- <div infinite-scroll="" infinite-scroll-distance="1"> -->
                 <div class="">
+                    <!-- LOGO SECTION -->
                     <div class="">
-                        <h1>CAKIN' IT</h1>
+                        <div class="">
+                            <h1>CAKIN' IT</h1>
+                        </div>
                     </div>
-                </div>
-                <!-- END OF LANDING PAGE -->
+                    <!-- END OF LANDING PAGE -->
 
-                <!-- NAV -->
-                <!-- if clicked go to  -->
-                <div class="">
-                    <div class="">
-                        <nav>
-
-                        </nav>
+                    <!-- NAV -->
+                    <!-- if clicked go to  -->
+                    <div class="nav-stacked">
+                        <div class="navbar-fixed-left">
+                            <nav>
+                                <ul>
+                                    <li><input type="text" placeholder="Inspiration Gallery" ng-model="searchCake"/><span class="glyphicon glyphicon-search"></span> </li>
+                                    <li>HOME</li>
+                                    <li>ABOUT</li>
+                                    <li>INSPIRATION GALLERY</li>
+                                    <li>FIND A BAKERY</li>
+                                    <li>FIND A CLASS</li>
+                                    <li>CONTACT US</li>
+                                </ul>
+                            </nav>
+                        </div>
                     </div>
-                </div>
-                <!-- END OF NAV -->
+                    <!-- END OF NAV -->
 
-                <!-- REGISTER -->
-                <!-- once registered login -->
-                <div class="">
-                    <div class="">
 
+                    <!-- REGISTER MODAL -->
+
+                    <div class="modal fade" data-keyboard="false" data-backdrop="static" id="registerModal" tabindex="-1">
+                        <div class="modal-dialog" ng-model="register">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <button class="close" data-dismiss="modal">&times;</button>
+                                    <h4 class="modal-title">Register</h4>
+                                </div>
+                                <div class="modal-body">
+                                    <form>
+                                        <div class="form-group">
+                                            <label for="inputUsername">Username</label>
+                                            <input class="form-control" type="text" id="inputUsername">
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="inputPassword">Password</label>
+                                            <input class="form-control" type="password" id="inputPassword">
+                                        </div>
+                                    </form>
+                                </div>
+                                <div class="modal-footer">
+                                    <button class="btn" type="submit">Register</button>
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                </div>
+                    <!-- once registered login -->
 
-                <!-- LOGIN -->
-                <!-- if logged in go to /users/:id -->
-                <div class="" ng-model="hideUsers">
-                    <div class="">
+                    <!-- LOGIN -->
 
+                    <div class="modal fade" data-keyboard="false" data-backdrop="static" id="loginModal" tabindex="-1">
+                        <div class="modal-dialog" ng-model="login">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <button class="close" data-dismiss="modal">&times;</button>
+                                    <h4 class="modal-title">Login</h4>
+                                </div>
+                                <div class="modal-body">
+                                    <form>
+                                        <div class="form-group">
+                                            <label for="inputUsername2">Username</label>
+                                            <input class="form-control" type="text" id="inputUsername2">
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="inputPassword2">Password</label>
+                                            <input class="form-control" type="password" id="inputPassword2">
+                                        </div>
+                                    </form>
+                                </div>
+                                <div class="modal-footer">
+                                    <button class="btn" type="submit">Login</button>
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                </div>
+                    <!-- if logged in go to /users/:id -->
 
-                <!-- SEARCH SECTION -->
-                <div class="">
-                    Search: <input type="text" placeholder="Inspiration Gallery" ng-model="searchCake"/>
+                    <!-- <div class="" ng-model="hideUsers">
+                        <div class="" ng-model="login">
+                            <h4>Login</h4>
+                            <input type="text" placeholder="Name">
+                            <input type="password" name="" placeholder="Password">
+                            <input type="submit" value="Enter">
+                        </div>
+                    </div> -->
+
                 </div>
-                <!-- END OF SEARCH -->
-            </div>
+            <!-- </div> -->
 
             <!-- USERS -->
             <div class="" ng-hide="hideUsers">
@@ -93,7 +155,7 @@
             <!-- INSPRIATION GALLERY -->
             <div class="" ng-controller="cakeController as ctrl">
                 <div class="gallery" ng-repeat='cake in ctrl.cakes | filter: searchCake'>
-                    <h3>{{ cake.title }}</h3>
+                    <!-- <h3>{{ cake.title }}</h3> -->
                     <!-- NEED TO FIX IMAGES, NOT HITTING CORRECT ROUTE -->
                     <!-- <img src="{{ cake.img }}"/> -->
                 </div>
