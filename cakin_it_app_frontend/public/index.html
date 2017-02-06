@@ -10,7 +10,7 @@
         <script type="text/javascript" src="app.js"></script>
         <title>Cakin' It</title>
     </head>
-    <body>
+    <body ng-controller="mainController as ctrl">
         <div class="container">
 
 <!------------------------------ HOME SECTION ----------------------------------->
@@ -25,8 +25,8 @@
                         <div class="navbar-collapse collapse">
                             <div class="nav navbar-nav">
                                 <button class="btn pull-right" data-target="#navModal" data-toggle="modal"><span class="glyphicon glyphicon-align-justify"></span></button>
-                                <button class="btn pull-right" data-target="#registerModal" data-toggle="modal">Register</button>
                                 <button class="btn pull-right" data-target="#loginModal" data-toggle="modal">Login</button>
+                                <button class="btn pull-right" data-target="#registerModal" data-toggle="modal">Register</button>
                             </div>
                             <!-- SEARCH AREA -->
                             <form id="navSearch" class="navbar-form pull-right" role="search" action="index.html" method="post">
@@ -72,7 +72,6 @@
 
 
                     <!-- REGISTER MODAL -->
-
                         <div class="modal fade" data-keyboard="false" data-backdrop="static" id="registerModal" tabindex="-1">
                             <div class="modal-dialog" ng-model="register">
                                 <div class="modal-content">
@@ -81,18 +80,16 @@
                                         <h4 class="modal-title">Register</h4>
                                     </div>
                                     <div class="modal-body">
-                                        <form>
+                                        <form ng-submit="ctrl.register(aUsersPass)">
                                             <div class="form-group">
-                                                <label for="inputUsername">Username</label>
-                                                <input class="form-control" type="text" id="inputUsername">
-                                            </div>
-                                            <div class="form-group">
-                                                <label for="inputPassword">Password</label>
-                                                <input class="form-control" type="password" id="inputPassword">
+                                                <input type="text" ng-model="aUsersPass.username" placeholder="username"/>
+                                                <input type="password" ng-model="aUsersPass.password" placeholder="password"/>
+                                                <input type="submit"/>
                                             </div>
                                         </form>
                                     </div>
                                     <div class="modal-footer">
+                                        <p>Once registered, please sign in</p>
                                         <button class="btn" type="submit">Register</button>
                                     </div>
                                 </div>
@@ -101,7 +98,6 @@
                     <!-- once registered login -->
 
                     <!-- LOGIN -->
-
                         <div class="modal fade" data-keyboard="false" data-backdrop="static" id="loginModal" tabindex="-1">
                             <div class="modal-dialog" ng-model="login">
                                 <div class="modal-content">
@@ -110,14 +106,10 @@
                                         <h4 class="modal-title">Login</h4>
                                     </div>
                                     <div class="modal-body">
-                                        <form>
+                                        <form ng-submit="ctrl.login(userPass)">
                                             <div class="form-group">
-                                                <label for="inputUsername2">Username</label>
-                                                <input class="form-control" type="text" id="inputUsername2">
-                                            </div>
-                                            <div class="form-group">
-                                                <label for="inputPassword2">Password</label>
-                                                <input class="form-control" type="password" id="inputPassword2">
+                                                <input type="text" ng-model="userPass.username" placeholder="username"/>
+                                                <input type="password" ng-model="userPass.password" placeholder="password"/>
                                             </div>
                                         </form>
                                     </div>
@@ -129,15 +121,6 @@
                         </div>
                     <!-- if logged in go to /users/:id -->
 
-                    <!-- <div class="" ng-model="hideUsers">
-                        <div class="" ng-model="login">
-                            <h4>Login</h4>
-                            <input type="text" placeholder="Name">
-                            <input type="password" name="" placeholder="Password">
-                            <input type="submit" value="Enter">
-                        </div>
-                    </div> -->
-
                 </div>
             <!-- </div> -->
 <!--------------------------------- END OF HOME ---------------------------------------->
@@ -146,8 +129,19 @@
 <!----------------------------------- USERS -------------------------------------------->
             <div class="" ng-hide="hideUsers">
                 <div class="">
+                    <h4 ng-click="ctrl.getUsers()"><a href="#">Click to go to your page</a></h4>
 
 
+
+                    <div class="">
+                        {{ ctrl.error }}
+                    </div>
+
+                    <div ng-repeat='user in ctrl.users'>
+                        <h4>Welcome to Caking, {{ user.username }} !!</h4>
+                        <!-- USERS LOGOUT -->
+                        <a href="#home" ng-click="ctrl.logout()">Log Out</a>
+                    </div>
                     <!-- EDIT USER BUTTON -->
                     <!-- DELETE USER BUTTON -->
                     <!-- USERS GALLERY -->
@@ -179,11 +173,10 @@
 <!------------------------------- END OF ABOUT ---------------------------------->
 
 <!---------------------------- INSPRIATION GALLERY ------------------------------>
-            <div class="" id="inspireGallery"ng-controller="cakeController as ctrl">
+            <div class="" id="inspireGallery">
                 <div class="gallery" ng-repeat='cake in ctrl.cakes | filter: searchCake'>
-                    <!-- <h3>{{ cake.title }}</h3> -->
-                    <!-- NEED TO FIX IMAGES, NOT HITTING CORRECT ROUTE -->
-                    <!-- <img src="{{ cake.img }}"/> -->
+                    <h3>{{ cake.title }}</h3>
+                    <img src="{{ cake.img }}"/>
                 </div>
             </div>
 <!----------------------------- END OF GALLERY ---------------------------------->
