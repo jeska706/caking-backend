@@ -49,7 +49,7 @@ Cake.create({
     description:["twister", "life", "boardgames", "scrabble", "two tier", "sculpted", "flat art"]
 })
 Cake.create({
-    title: "Bomb-bomb Cupcakes",
+    title: "Bomb-Bomb Cupcakes",
     img: "http://i.imgur.com/3ECqYH2.png",
     description:["super mario brothers", "cupcake toppers"]
 })

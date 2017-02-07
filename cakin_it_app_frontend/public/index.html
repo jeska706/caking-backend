@@ -25,8 +25,8 @@
                         <div class="navbar-collapse collapse">
                             <div class="nav navbar-nav">
                                 <button class="btn pull-right" data-target="#navModal" data-toggle="modal"><span class="glyphicon glyphicon-align-justify"></span></button>
-                                <button class="btn pull-right" data-target="#loginModal" data-toggle="modal">Login</button>
                                 <button class="btn pull-right" data-target="#registerModal" data-toggle="modal">Register</button>
+                                <button class="btn pull-right" data-target="#loginModal" data-toggle="modal">Login</button>
                             </div>
                             <!-- SEARCH AREA -->
                             <form id="navSearch" class="navbar-form pull-right" role="search" action="index.html" method="post">
@@ -72,7 +72,15 @@
 
 
                     <!-- REGISTER MODAL -->
-                        <div class="modal fade" data-keyboard="false" data-backdrop="static" id="registerModal" tabindex="-1">
+                    <form ng-submit="ctrl.register(registeredPass)">
+                        <h4>Register</h4>
+                        <input type="text" ng-model="registeredPass.username" placeholder="username"/>
+                        <input type="password" ng-model="registeredPass.password" placeholder="password"/>
+                        <input type="submit"/>
+                        <p>Once registered, please sign in</p>
+                    </form>
+
+                        <!-- <div class="modal fade" data-keyboard="false" data-backdrop="static" id="registerModal" tabindex="-1">
                             <div class="modal-dialog" ng-model="register">
                                 <div class="modal-content">
                                     <div class="modal-header">
@@ -80,25 +88,33 @@
                                         <h4 class="modal-title">Register</h4>
                                     </div>
                                     <div class="modal-body">
-                                        <form ng-submit="ctrl.register(aUsersPass)">
+                                        <form>
                                             <div class="form-group">
-                                                <input type="text" ng-model="aUsersPass.username" placeholder="username"/>
-                                                <input type="password" ng-model="aUsersPass.password" placeholder="password"/>
-                                                <input type="submit"/>
+                                                <label for="inputUsername">Username</label>
+                                                <input class="form-control" type="text" id="inputUsername">
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="inputPassword">Password</label>
+                                                <input class="form-control" type="password" id="inputPassword">
                                             </div>
                                         </form>
                                     </div>
                                     <div class="modal-footer">
-                                        <p>Once registered, please sign in</p>
                                         <button class="btn" type="submit">Register</button>
                                     </div>
                                 </div>
                             </div>
-                        </div>
+                        </div> -->
                     <!-- once registered login -->
 
                     <!-- LOGIN -->
-                        <div class="modal fade" data-keyboard="false" data-backdrop="static" id="loginModal" tabindex="-1">
+                    <form ng-submit="ctrl.login(userPass)">
+                        <h4>Login</h4>
+                        <input type="text" ng-model="userPass.username" placeholder="username"/>
+                        <input type="password" ng-model="userPass.password" placeholder="password"/>
+                        <input type="submit"/>
+                    </form>
+                        <!-- <div class="modal fade" data-keyboard="false" data-backdrop="static" id="loginModal" tabindex="-1">
                             <div class="modal-dialog" ng-model="login">
                                 <div class="modal-content">
                                     <div class="modal-header">
@@ -107,9 +123,19 @@
                                     </div>
                                     <div class="modal-body">
                                         <form ng-submit="ctrl.login(userPass)">
+                                            <h4>Login</h4>
+                                            <input type="text" ng-model="userPass.username" placeholder="username"/>
+                                            <input type="password" ng-model="userPass.password" placeholder="password"/>
+                                            <input type="submit"/>
+                                        </form>
+                                        <form>
                                             <div class="form-group">
-                                                <input type="text" ng-model="userPass.username" placeholder="username"/>
-                                                <input type="password" ng-model="userPass.password" placeholder="password"/>
+                                                <label for="inputUsername2">Username</label>
+                                                <input class="form-control" type="text" id="inputUsername2">
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="inputPassword2">Password</label>
+                                                <input class="form-control" type="password" id="inputPassword2">
                                             </div>
                                         </form>
                                     </div>
@@ -118,8 +144,17 @@
                                     </div>
                                 </div>
                             </div>
-                        </div>
+                        </div> -->
                     <!-- if logged in go to /users/:id -->
+
+                    <!-- <div class="" ng-model="hideUsers">
+                        <div class="" ng-model="login">
+                            <h4>Login</h4>
+                            <input type="text" placeholder="Name">
+                            <input type="password" name="" placeholder="Password">
+                            <input type="submit" value="Enter">
+                        </div>
+                    </div> -->
 
                 </div>
             <!-- </div> -->
@@ -129,7 +164,7 @@
 <!----------------------------------- USERS -------------------------------------------->
             <div class="" ng-hide="hideUsers">
                 <div class="">
-                    <h4 ng-click="ctrl.getUsers()"><a href="#">Click to go to your page</a></h4>
+                    <h4 ng-click="ctrl.getUsers()"><a>Click to go to your page</a></h4>
 
 
 
@@ -142,11 +177,11 @@
                         <!-- USERS LOGOUT -->
                         <a href="#home" ng-click="ctrl.logout()">Log Out</a>
                     </div>
-                    <!-- EDIT USER BUTTON -->
+
                     <!-- DELETE USER BUTTON -->
                     <!-- USERS GALLERY -->
                         <div class="">
-
+                            <!-- EDIT USER BUTTON -->
                         </div>
 
                     <!-- CREATION BUTTON -->
@@ -173,10 +208,13 @@
 <!------------------------------- END OF ABOUT ---------------------------------->
 
 <!---------------------------- INSPRIATION GALLERY ------------------------------>
-            <div class="" id="inspireGallery">
-                <div class="gallery" ng-repeat='cake in ctrl.cakes | filter: searchCake'>
-                    <h3>{{ cake.title }}</h3>
-                    <img src="{{ cake.img }}"/>
+            <div class="container">
+                <div id="inspireGallery">
+                    <div class="gallery" ng-repeat='cake in ctrl.cakes | filter: searchCake'>
+                        <h3>{{ cake.title }}</h3>
+                        <img class="img-responsive" src="{{ cake.img }}" style="width:300px;height:300px;"/><br>
+                        <button type="button" name="button">Add to your gallery</button>
+                    </div>
                 </div>
             </div>
 <!----------------------------- END OF GALLERY ---------------------------------->

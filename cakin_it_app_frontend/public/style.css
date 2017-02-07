@@ -12,6 +12,12 @@
 #home{
 
 }
+.gallery{
+    text-align: center;
+    display: inline-block;
+    margin: 5px;
+    border: 1px solid black;
+}
 
 #about{
 

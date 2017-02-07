@@ -6,22 +6,22 @@ var app = angular.module('cakinItApp', []);
 
 //-----------Main Controller----------------
 app.controller('mainController', ['$http', function($http){
-    // this.message = "Cake controller connected"
+    // this.message = "Main controller connected"
     var controller = this;
     console.log(controller);
     this.url = 'http://localhost:3000'
     this.user = {};
     this.users = [];
     this.userPass = {};
-    this.aUsersPass = {};
+    this.registeredPass = {};
 
     //----------Register---------------
     this.registered = false;
-    this.register = function(aUsersPass){
+    this.register = function(registeredPass){
         $http({
             method: 'POST',
             url: controller.url + "/users",
-            data: { user: aUsersPass.username, password: aUsersPass.password }
+            data: { username: registeredPass.username, password: registeredPass.password }
         }).then(function(res){
             console.log('this is registered res: ', res)
             this.registered = true;
@@ -39,7 +39,7 @@ app.controller('mainController', ['$http', function($http){
         $http({
             method: 'POST',
             url: controller.url + '/users/login',
-            data: { user: { username: userPass.username, password: userPass.password }},
+            data: { username: userPass.username, password: userPass.password },
         }).then(function(res){
             console.log(controller);
             console.log('this is the login res : ',res);
