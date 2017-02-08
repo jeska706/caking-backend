@@ -8,7 +8,7 @@ var app = angular.module('cakinItApp', []);
 app.controller('mainController', ['$http', function($http){
     // this.message = "Main controller connected"
     var controller = this;
-    console.log(controller);
+    // console.log(controller);
     this.url = 'http://localhost:3000'
     this.user = {};
     this.users = [];
@@ -25,14 +25,14 @@ app.controller('mainController', ['$http', function($http){
         }).then(function(res){
             console.log('this is registered res: ', res)
             this.registered = true;
-            // this.aUsersPass = {};
+            this.aUsersPass = {};
         }.bind(this));
     }
 
 
 
     //-----------Login----------------
-
+    this.loggedIn = false;
     //set up hide login, register modal on login
     this.login = function(userPass) {
         console.log(userPass);
@@ -41,12 +41,13 @@ app.controller('mainController', ['$http', function($http){
             url: controller.url + '/users/login',
             data: { username: userPass.username, password: userPass.password },
         }).then(function(res){
-            console.log(controller);
-            console.log('this is the login res : ',res);
+            // console.log(controller);
+            // console.log('this is the login res : ',res);
             this.user = res.data.user;
             console.log(this.user);//coming back Unauthorized
             localStorage.setItem('token', JSON.stringify(res.data.token));
-            // this.userPass = {};
+            this.loggedIn = true;
+            this.userPass = {};
         }.bind(this));
     }
 
@@ -79,10 +80,10 @@ app.controller('mainController', ['$http', function($http){
         method: 'GET',
         url: this.url + '/cakes'
     }).then(function(res){
-        console.log(res);
-        console.log('this is this: ', controller);
+        // console.log(res);
+        // console.log('this is this: ', controller);
         controller.cakes = res.data;
-        console.log(controller.cakes);
+        // console.log(controller.cakes);
     },function(res){
         controller.err = res.data;
         console.log(controller.err);
