@@ -129,10 +129,11 @@
                     <div ng-repeat='user in ctrl.users'>
                         <h2>Welcome to Caking, {{ user.username | uppercase }} !!</h2>
                         <div class="">
-                            <div class="">
-                                <a href="#inspireGallery">Go get inspired</a>
-
-                            </div>
+                            <button type="button" ng-click="makeCreation">Create a cake</button>
+                            <form class="" action="index.html" method="post">
+                                <input type="text" name="" value="">
+                                <input type="text" name="" value="">
+                            </form>
                         </div>
                         <!-- DELETE USER BUTTON -->
                         <!-- USERS GALLERY -->
@@ -143,7 +144,6 @@
 <!-------------------------- CREATION BUTTON ----------------------------------->
 
                         <!-- if clicked go to create -->
-                        <button type="button" ng-click="makeCreation">Create a cake</button>
                         <div id="creation" ng-hide="makeCreation" class="" >
                             <!-- CREATION  -->
                             <div ng-show="makeCreation" id="makeCreation" class="">
@@ -168,7 +168,7 @@
 <!------------------------------- ABOUT SECTION --------------------------------->
             <div class="" id="about">
                 <div class="">
-
+                    
                 </div>
             </div>
 <!------------------------------- END OF ABOUT ---------------------------------->
