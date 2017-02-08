@@ -75,8 +75,12 @@ app.controller('mainController', ['$http', function($http){
 
     this.logout = function(){
         localStorage.clear('token');
-        location.reload();
         this.currentUser = {};
+        console.log(this.currentUser);
+
+        location.reload();
+        // this.currentUser = {};
+        // console.log(this.currentUser);
     }
 
     //------------Cake Hit--------------

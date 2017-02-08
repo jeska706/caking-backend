@@ -30,8 +30,12 @@
                         </div>
                         <div class="navbar-collapse collapse">
                             <div class="nav navbar-nav">
-                                <button class="btn pull-right" data-target="#navModal" data-toggle="modal"><span class="glyphicon glyphicon-align-justify"></span></button>
-                                <!-- SEARCH AREA -->
+                                <a href="#home">HOME</a>
+                                <a href="#about">ABOUT</a>
+                                <a href="#inspireGallery">INSPIRATION GALLERY</a>
+                                <a href="#users" ng-click="ctrl.getUsers()">YOUR PAGE</a>
+                                <a href="#findA">FIND A BAKERY</a>
+                                <a href="#contact">CONTACT US</a>
                                 <form id="navSearch" class="navbar-form pull-right" role="search" action="index.html" method="post">
                                     <div class="form-group has-feedback navbar-left">
                                         <input class="form-control" type="text" placeholder="Inspiration Gallery" ng-model="searchCake"/>
@@ -43,130 +47,104 @@
                     </div>
                 </nav>
             </div>
-            <!-- <div infinite-scroll="" infinite-scroll-distance="1"> -->
-                <div class="" id="home">
-                    <div id="register">
-                        <div ng-hide="register" >
-                            <button ng-if="!ctrl.registered" class="btn pull-right" data-target="#registerModal" data-toggle="modal">Register</button>
-                        </div>
+
+            <div class="" id="home">
+                <div id="register">
+                    <div ng-hide="register" >
+                        <button ng-if="!ctrl.registered" class="btn pull-right" data-target="#registerModal" data-toggle="modal">Register</button>
                     </div>
-                    <div id="login">
-                        <div ng-hide="login">
-                            <button ng-if="!ctrl.loggedIn" class="btn pull-right" data-target="#loginModal" data-toggle="modal">Login</button>
-                        </div>
-                    </div>
-                    <!-- LOGO SECTION -->
-                        <div class="">
-                            <div class="" id="logo">
-                                <h1>CAKING</h1>
-                            </div>
-                        </div>
-
-                    <!-- NAV -->
-                    <!-- if clicked go to  -->
-                    <div class="modal fade" data-keyboard="false" data-backdrop="static" id="navModal" tabindex="-1">
-                        <div class="modal-dialog" ng-model="login">
-                            <div class="modal-content">
-                                <div class="modal-body">
-                                    <button class="close" data-dismiss="modal">&times;</button>
-                                    <ul>
-                                        <li><a href="#home">HOME</a></li>
-                                        <li><a href="#about">ABOUT</a></li>
-                                        <li><a href="#inspireGallery">INSPIRATION GALLERY</a></li>
-                                        <li ng-click="ctrl.getUsers()"><a>YOUR PAGE</a></li>
-                                        <li><a href="#findA">FIND A BAKERY</a></li>
-                                        <li><a href="#findA">FIND A CLASS</a></li>
-                                        <li><a href="#contact">CONTACT US</a></li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- END OF NAV -->
-
-
-                    <!-- REGISTER MODAL -->
-                        <div class="modal fade" data-keyboard="false" data-backdrop="static" id="registerModal" tabindex="-1">
-                            <div class="modal-dialog" >
-                                <div class="modal-content">
-                                    <div class="modal-header">
-                                        <button class="close" data-dismiss="modal">&times;</button>
-                                        <h4 class="modal-title">Register</h4>
-                                    </div>
-                                    <div class="modal-body">
-                                        <div class="form-group">
-                                            <form ng-submit="ctrl.register(registeredPass)">
-                                                <input type="text" ng-model="registeredPass.username" placeholder="username"/>
-                                                <input type="password" ng-model="registeredPass.password" placeholder="password"/>
-                                                <input type="submit"/>
-                                            </form>
-                                        </div>
-                                    </div>
-                                    <div class="modal-footer form-group">
-                                        <button class="btn close" data-dismiss="modal">Now Login</button>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    <!-- once registered login -->
-
-                    <!-- LOGIN -->
-                        <div class="modal fade" data-keyboard="false" data-backdrop="static" id="loginModal" tabindex="-1">
-                            <div class="modal-dialog">
-                                <div class="modal-content">
-                                    <div class="modal-header">
-                                        <button class="close" data-dismiss="modal">&times;</button>
-                                        <h4 class="modal-title">Login</h4>
-                                    </div>
-                                    <div class="modal-body">
-                                        <div class="form-group">
-                                            <form ng-submit="ctrl.login(userPass)">
-                                                <input type="text" ng-model="userPass.username" placeholder="username"/>
-                                                <input type="password" ng-model="userPass.password" placeholder="password"/>
-                                                <input type="submit"/>
-                                            </form>
-                                        </div>
-                                    </div>
-                                    <div class="modal-footer">
-                                        <button ng-click="ctrl.getUsers()" class="btn" type="submit" data-dismiss="modal">Create Your Own Gallery!</button>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    <!-- if logged in go to /users/:id -->
-
-
                 </div>
-            <!-- </div> -->
+                <div id="login">
+                    <div ng-hide="login">
+                        <button ng-if="!ctrl.loggedIn" class="btn pull-right" data-target="#loginModal" data-toggle="modal"><a href="#users">Login</a></button>
+                    </div>
+                </div>
+
+<!------------------------------- LOGO SECTION --------------------------->
+                <div class="">
+                    <div class="" id="logo">
+                        <h1>CAKING</h1>
+                    </div>
+                </div>
+
+<!----------------------------- REGISTER MODAL ------------------------------>
+                <div class="modal fade" data-keyboard="false" data-backdrop="static" id="registerModal" tabindex="-1">
+                    <div class="modal-dialog" >
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <button class="close" data-dismiss="modal">&times;</button>
+                                <h4 class="modal-title">Register</h4>
+                            </div>
+                            <div class="modal-body">
+                                <div class="form-group">
+                                    <form ng-submit="ctrl.register(registeredPass)">
+                                        <input type="text" ng-model="registeredPass.username" placeholder="username"/>
+                                        <input type="password" ng-model="registeredPass.password" placeholder="password"/>
+                                        <input type="submit"/>
+                                    </form>
+                                </div>
+                            </div>
+                            <div class="modal-footer form-group">
+                                <button ng-if="!ctrl.loggedIn" class="btn pull-right" data-dismiss="modal" data-target="#loginModal" data-toggle="modal">Login</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- once registered login -->
+
+                <!-- LOGIN -->
+                <div class="modal fade" data-keyboard="false" data-backdrop="static" id="loginModal" tabindex="-1">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <button class="close" data-dismiss="modal">&times;</button>
+                                <h4 class="modal-title">Login</h4>
+                            </div>
+                            <div class="modal-body">
+                                <div class="form-group">
+                                    <form ng-submit="ctrl.login(userPass)">
+                                        <input type="text" ng-model="userPass.username" placeholder="username"/>
+                                        <input type="password" ng-model="userPass.password" placeholder="password"/>
+                                        <input type="submit"/>
+                                    </form>
+                                </div>
+                            </div>
+                            <div class="modal-footer">
+                                <button ng-click="ctrl.getUsers()" class="btn" type="submit" data-dismiss="modal"><a href="#users">Create Your Own Gallery!</a></button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
 <!--------------------------------- END OF HOME ---------------------------------------->
 
 
 <!----------------------------------- USERS -------------------------------------------->
-            <div class="" ng-hide="hideUsers">
+            <div id="users" ng-hide="hideUsers">
                 <div class="">
-                    <!-- <h4 ng-click="ctrl.getUsers()"><a>{{ user.username }}'s page</a></h4> -->
-
                     <div class="">
                         {{ ctrl.error }}
                     </div>
 
                     <div ng-repeat='user in ctrl.users'>
-                        <h4>Welcome to Caking, {{ user.username }} !!</h4>
-                        <!-- USERS LOGOUT -->
-                        <!-- <a href="#home" ng-click="ctrl.logout()">Log Out</a> -->
-                    </div>
-
-                    <!-- DELETE USER BUTTON -->
-                    <!-- USERS GALLERY -->
+                        <h2>Welcome to Caking, {{ user.username | uppercase }} !!</h2>
                         <div class="">
-                            <!-- EDIT USER BUTTON -->
+                            <div class="">
+                                <a href="#inspireGallery">Go get inspired</a>
+
+                            </div>
+                        </div>
+                        <!-- DELETE USER BUTTON -->
+                        <!-- USERS GALLERY -->
+                        <div class="">
+                        <!-- EDIT USER BUTTON -->
                         </div>
 
 <!-------------------------- CREATION BUTTON ----------------------------------->
 
-                    <!-- if clicked go to create -->
-                    <button type="button" ng-click="creation">Create a cake</button>
-                        <div ng-if="creation" ng-show="makeCreation" class="" >
+                        <!-- if clicked go to create -->
+                        <button type="button" ng-click="makeCreation">Create a cake</button>
+                        <div id="creation" ng-hide="makeCreation" class="" >
                             <!-- CREATION  -->
                             <div ng-show="makeCreation" id="makeCreation" class="">
                                 <!-- SAVE, DELETE, EMAIL BUTTONS -->
@@ -174,14 +152,15 @@
                             </div>
                             <!-- END OF CREATION -->
                         </div>
-                    <div id="creation">
-                        <button class="btn" ng-click="single"></button>
-                        <button class="btn" ng-click="double"></button>
-                        <button class="btn" ng-click="triple"></button>
-                        <button class="btn" ng-click="btn-reset"></button>
+                        <div id="creation">
+                            <button class="btn" ng-click="single"></button>
+                            <button class="btn" ng-click="double"></button>
+                            <button class="btn" ng-click="triple"></button>
+                            <button class="btn" ng-click="btn-reset"></button>
+                        </div>
+                        <a href="#home" ng-click="ctrl.logout()">Log Out</a>
                     </div>
                 </div>
-                <a href="#home" ng-click="ctrl.logout()">Log Out</a>
             </div>
 <!------------------------------- END OF USERS ---------------------------------->
 
