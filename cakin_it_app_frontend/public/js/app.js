@@ -14,6 +14,7 @@ app.controller('mainController', ['$http', function($http){
     this.users = [];
     this.userPass = {};
     this.registeredPass = {};
+    this.currentUser = {};
 
     //----------Register---------------
     this.registered = false;
@@ -42,7 +43,7 @@ app.controller('mainController', ['$http', function($http){
             data: { username: userPass.username, password: userPass.password },
         }).then(function(res){
             // console.log(controller);
-            // console.log('this is the login res : ',res);
+            console.log('this is the login res : ',res);
             this.user = res.data.user;
             console.log(this.user);//coming back Unauthorized
             localStorage.setItem('token', JSON.stringify(res.data.token));
@@ -60,9 +61,11 @@ app.controller('mainController', ['$http', function($http){
             }
         }).then(function(res) {
             console.log(res);
+
             if (res.data.status == 401){
                 this.error = "Unauthorized";
                 console.log(this.error);
+                this.currentUser = res.data;
             }else{
                 this.users = res.data;
             }
@@ -73,6 +76,7 @@ app.controller('mainController', ['$http', function($http){
     this.logout = function(){
         localStorage.clear('token');
         location.reload();
+        this.currentUser = {};
     }
 
     //------------Cake Hit--------------
