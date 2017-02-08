@@ -9,7 +9,21 @@
 #modalBtn{
     margin-left: 5px;
 }
+
 #home{
+    height: 500px;
+}
+#creation{
+    margin: 40px;
+    background: #666;
+    height: 500px;
+}
+#theCanvas{
+    margin: 10px auto;
+    background: #FFF;
+    border: 1px solid #000;
+    height: 400px;
+    width: 400px;
 
 }
 .gallery{
