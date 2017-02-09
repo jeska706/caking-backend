@@ -1,9 +1,14 @@
-#logo{
+*{
     text-align: center;
 }
-
+#confirm{
+    margin-top: 10%;
+    float: right;
+}
 #logo{
     margin-top: 30%;
+    width: 100%;
+    text-align: center;
 }
 
 #modalBtn{
@@ -11,6 +16,7 @@
 }
 
 #home{
+    min-height: 100vh;
     height: 500px;
 }
 #creation{
@@ -19,11 +25,7 @@
     height: 500px;
 }
 #theCanvas{
-    margin: 10px auto;
-    background: #FFF;
-    border: 1px solid #000;
-    height: 400px;
-    width: 400px;
+
 
 }
 .gallery{
