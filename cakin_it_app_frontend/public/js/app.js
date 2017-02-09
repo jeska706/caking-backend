@@ -14,7 +14,7 @@ app.controller('mainController', ['$http', function($http){
     this.users = [];
     this.userPass = {};
     this.registeredPass = {};
-    this.currentUser = localStorage.username;
+    // this.currentUser = localStorage.username;
 
     //----------Register---------------
     this.registered = false;
@@ -50,7 +50,7 @@ app.controller('mainController', ['$http', function($http){
             localStorage.setItem('token', JSON.stringify(res.data.token));
             this.loggedIn = true;
             this.userPass = {};
-            this.currentUser = localStorage.username;
+            // this.currentUser = localStorage.username;
         }.bind(this));
     }
 
@@ -72,7 +72,10 @@ app.controller('mainController', ['$http', function($http){
             }else{
                 this.users = res.data;
                 this.wrong = false;
+                console.log(res.data);
                 this.currentUser = localStorage.username;
+                console.log(this.currentUser);
+                this.welcome = "Welcome to Caking, " + this.currentUser;
             }
 
         }.bind(this));

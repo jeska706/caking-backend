@@ -129,17 +129,18 @@
 
             <div id="users" ng-if="ctrl.loggedIn">
                 <div class="">
-                    <div class="">
-                        {{ ctrl.error }}
-                    </div>
                     <div ng-if="ctrl.loggedIn">
-                        <h2 ng-if="ctrl.loggedIn">Welcome to Caking, {{ ctrl.currentUser | uppercase }} !!</h2>
+                        <h2 ng-if="ctrl.loggedIn">{{ ctrl.welcome }}</h2>
                         <div class="">
-                            <button type="button" ng-click="makeCreation">Create a cake</button>
-                            <form class="" action="index.html" method="post">
+                            <button class="btn" type="button" ng-click="">Create a cake</button>
+                            <button class="btn" type="button"><a href="#home" ng-click="ctrl.logout()">Log Out</a></button>
+                            <button id="edit" class="btn" type="button">Edit Account</button>
+                            <form ng-if="edit" ng-model="edit">
                                 <input type="text" name="" value="">
                                 <input type="text" name="" value="">
                             </form>
+                            <button id="delete" class="btn" type="button">Delete Account</button>
+
                         </div>
                         <h2>Choose from our palette</h2>
                         <!-- DELETE USER BUTTON -->
@@ -402,7 +403,6 @@
                         </script>
 
                         <!-- END OF CREATION -->
-                        <a href="#home" ng-click="ctrl.logout()">Log Out</a>
                     </div>
                 </div>
             </div>
