@@ -10,15 +10,16 @@
         <script type="text/javascript" src="js/app.js"></script>
         <!-- JQUERY -->
         <script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
-        <script type="text/javascript" src="js/cake-canvas.js"></script>
+        <!-- <script type="text/javascript" src="js/cake-canvas.js"></script> -->
         <!-- SVG -->
-        <script src='spectrum.js'></script>
-        <link rel='stylesheet' href='spectrum.css'/>
-
+        <script type="text/javascript" src='canvas/spectrum.js'></script>
+        <script type="text/javascript" src="canvas/coloring.js"></script>
+        <link rel='stylesheet' href='canvas/spectrum.css'/>
+        <link rel="stylesheet" href="canvas/css.css">
         <title>Cakin' It</title>
     </head>
     <body ng-controller="mainController as ctrl">
-        <div class="container">
+        <div class="">
 
 <!------------------------------ HOME SECTION ----------------------------------->
             <div class="container">
@@ -49,7 +50,7 @@
                 </nav>
             </div>
 
-            <div class="container" id="home">
+            <div class="" id="home">
                 <div id="confirm">
                     <div id="register">
                         <div ng-hide="register" >
@@ -132,8 +133,6 @@
                         {{ ctrl.error }}
                     </div>
                     <div ng-if="ctrl.loggedIn">
-
-                    <!-- <div ng-repeat='user in ctrl.users'> -->
                         <h2 ng-if="ctrl.loggedIn">Welcome to Caking, {{ ctrl.currentUser | uppercase }} !!</h2>
                         <div class="">
                             <button type="button" ng-click="makeCreation">Create a cake</button>
@@ -142,6 +141,7 @@
                                 <input type="text" name="" value="">
                             </form>
                         </div>
+                        <h2>Choose from our palette</h2>
                         <!-- DELETE USER BUTTON -->
                         <!-- USERS GALLERY -->
                         <div class="">
@@ -153,14 +153,10 @@
                         <!-- if clicked go to create -->
                         <div id="" >
                             <!-- CREATION  -->
-                            <div id="makeCreation" class="">
+                            <div id="" class="">
                                 <!-- SAVE, DELETE, EMAIL BUTTONS -->
                                 <div id="container">
-                                    <!-- <canvas id="canvas" width='50%' height="40%">
-                                    </canvas> -->
                                     <div id="sidebar">
-
-                                        <h2>Choose from our palette</h2>
                                         <div id="swatches">
                                             <div id="current-swatch" style="width:180px; height:30px; border-radius:10px; background-color:#fff; border:1px solid #000000; margin-bottom:2em;"></div>
                                             <div class="swatch" style="background-color:#eeeee8; width:40px; height:40px; border-radius:20px;float:left;"></div>
@@ -181,13 +177,13 @@
                                             <div class="swatch" style="background-color:#dcffc0; width:40px; height:40px; border-radius:20px;float:left;"></div>
                                             <div id="selection" style="stroke:#0000ff; stroke-opacity: 1;fill:none" x="0" y="0" width="20" height="20"></div>
                                         </div>
-                                        <div id="colorpicker">
+                                        <!-- <div id="colorpicker">
                                             <h4>or choose your own colors!</h4>
                                             <input type='text' id="custom" placeholder="ENTER A HEX COLOR #"/>
                                             <button type="submit" for="#custom">Enter</button>
                                             <button id="undo">undo</button>
                                             <button id="save">save</button>
-                                        </div>
+                                        </div> -->
                                     </div>
 
                                     <div id="main">
@@ -325,7 +321,7 @@
                                     	            </g>
                                                 </g>
                                             </svg>
-
+                                        <canvas id="canvas" width='50%' height="40%"></canvas>
                                     </div>
                                 </div>
                             </div>
@@ -414,7 +410,7 @@
 
 
 <!------------------------------- ABOUT SECTION --------------------------------->
-            <div class="" id="about">
+            <div class="container" id="about">
                 <div class="">
                     <h3>All about this page</h3>
                     <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>

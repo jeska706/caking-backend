@@ -36,7 +36,11 @@
 }
 
 #about{
-
+    display: block;
+    width: 80%;
+}
+#about h3{
+    width: 100%;
 }
 
 #findA{

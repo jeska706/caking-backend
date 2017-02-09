@@ -501,14 +501,14 @@ See http://bgrins.github.io/spectrum/themes/ for instructions.
 
 
 #container{
-  width:80%;
+  width:40%;
   margin:0 auto;
   padding: 5%;
 }
-/*body{
+body{
   font-family:'Helvetica';
   color:#424242;
-}*/
+}
 /*************************** not working **************************/
 #undo{
   width:50%;
@@ -529,12 +529,12 @@ See http://bgrins.github.io/spectrum/themes/ for instructions.
 /******************************************************************/
 
 #Layer-1{
-  float:left;
+  float: left;
 }
 #sidebar {
     text-align:center;
-    /*float:right;*/
-    width:40%;
+    float:right;
+    width:200px;
 }
 #swatches{
   width:200px;
