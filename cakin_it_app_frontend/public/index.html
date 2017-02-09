@@ -131,9 +131,10 @@
                     <div class="">
                         {{ ctrl.error }}
                     </div>
-                    <div ng-bind="user in ctrl.users">
+                    <div ng-if="ctrl.loggedIn">
+
                     <!-- <div ng-repeat='user in ctrl.users'> -->
-                        <h2>Welcome to Caking, {{ user.username | uppercase }} !!</h2>
+                        <h2 ng-if="ctrl.loggedIn">Welcome to Caking, {{ ctrl.currentUser | uppercase }} !!</h2>
                         <div class="">
                             <button type="button" ng-click="makeCreation">Create a cake</button>
                             <form class="" action="index.html" method="post">
@@ -150,7 +151,7 @@
 <!-------------------------- CREATION BUTTON ----------------------------------->
 
                         <!-- if clicked go to create -->
-                        <div id="creation" >
+                        <div id="" >
                             <!-- CREATION  -->
                             <div id="makeCreation" class="">
                                 <!-- SAVE, DELETE, EMAIL BUTTONS -->
