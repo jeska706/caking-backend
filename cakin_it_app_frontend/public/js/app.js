@@ -14,7 +14,7 @@ app.controller('mainController', ['$http', function($http){
     this.users = [];
     this.userPass = {};
     this.registeredPass = {};
-    this.currentUser = {};
+    this.currentUser = localStorage.username;
 
     //----------Register---------------
     this.registered = false;
@@ -34,6 +34,7 @@ app.controller('mainController', ['$http', function($http){
 
     //-----------Login----------------
     this.loggedIn = false;
+    this.wrong = false;
     //set up hide login, register modal on login
     this.login = function(userPass) {
         console.log(userPass);
@@ -49,6 +50,7 @@ app.controller('mainController', ['$http', function($http){
             localStorage.setItem('token', JSON.stringify(res.data.token));
             this.loggedIn = true;
             this.userPass = {};
+            this.currentUser = localStorage.username;
         }.bind(this));
     }
 
@@ -65,9 +67,12 @@ app.controller('mainController', ['$http', function($http){
             if (res.data.status == 401){
                 this.error = "Unauthorized";
                 console.log(this.error);
-                this.currentUser = res.data;
+                this.wrong = true;
+                this.wrongMessage = "Nope, Try Again!"
             }else{
                 this.users = res.data;
+                this.wrong = false;
+                this.currentUser = localStorage.username;
             }
 
         }.bind(this));
