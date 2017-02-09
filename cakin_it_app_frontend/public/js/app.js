@@ -8,12 +8,13 @@ var app = angular.module('cakinItApp', []);
 app.controller('mainController', ['$http', function($http){
     // this.message = "Main controller connected"
     var controller = this;
-    console.log(controller);
+    // console.log(controller);
     this.url = 'http://localhost:3000'
     this.user = {};
     this.users = [];
     this.userPass = {};
     this.registeredPass = {};
+    controller.currentUser = {};
 
     //----------Register---------------
     this.registered = false;
@@ -25,14 +26,15 @@ app.controller('mainController', ['$http', function($http){
         }).then(function(res){
             console.log('this is registered res: ', res)
             this.registered = true;
-            // this.aUsersPass = {};
+            this.aUsersPass = {};
         }.bind(this));
     }
 
 
 
     //-----------Login----------------
-
+    this.loggedIn = false;
+    this.wrong = false;
     //set up hide login, register modal on login
     this.login = function(userPass) {
         console.log(userPass);
@@ -41,12 +43,13 @@ app.controller('mainController', ['$http', function($http){
             url: controller.url + '/users/login',
             data: { username: userPass.username, password: userPass.password },
         }).then(function(res){
-            console.log(controller);
+            // console.log(controller);
             console.log('this is the login res : ',res);
             this.user = res.data.user;
             console.log(this.user);//coming back Unauthorized
             localStorage.setItem('token', JSON.stringify(res.data.token));
-            // this.userPass = {};
+            this.loggedIn = true;
+            this.userPass = {};
         }.bind(this));
     }
 
@@ -59,11 +62,19 @@ app.controller('mainController', ['$http', function($http){
             }
         }).then(function(res) {
             console.log(res);
+
             if (res.data.status == 401){
                 this.error = "Unauthorized";
                 console.log(this.error);
+                this.wrong = true;
+                this.wrongMessage = "Nope, Try Again!"
             }else{
                 this.users = res.data;
+                this.wrong = false;
+                console.log(res.data);
+                controller.currentUser = res.data.username;
+                console.log(controller.currentUser);
+                controller.welcome = "Welcome to Caking, " + controller.currentUser;
             }
 
         }.bind(this));
@@ -71,7 +82,12 @@ app.controller('mainController', ['$http', function($http){
 
     this.logout = function(){
         localStorage.clear('token');
+        this.currentUser = {};
+        console.log(this.currentUser);
+
         location.reload();
+        // this.currentUser = {};
+        // console.log(this.currentUser);
     }
 
     //------------Cake Hit--------------
@@ -79,10 +95,10 @@ app.controller('mainController', ['$http', function($http){
         method: 'GET',
         url: this.url + '/cakes'
     }).then(function(res){
-        console.log(res);
-        console.log('this is this: ', controller);
+        // console.log(res);
+        // console.log('this is this: ', controller);
         controller.cakes = res.data;
-        console.log(controller.cakes);
+        // console.log(controller.cakes);
     },function(res){
         controller.err = res.data;
         console.log(controller.err);
