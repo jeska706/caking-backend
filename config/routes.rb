@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
     resources :cakes, only: [:index, :show]
     resources :users do
+        resources :cakes
         resources :creations
         collection do
             post '/login', to: 'users#login'

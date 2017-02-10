@@ -20,7 +20,7 @@
 
 Cake.create({
     title: "Art Deco",
-    img: "https://i.imgur.com/yf8i0ek.png",
+    img: "http://i.imgur.com/ZT0BcEj.png",
     description:["art deco", "tommy gun", "flapper girl", "single tier"]
 })
 Cake.create({
@@ -35,12 +35,12 @@ Cake.create({
 })
 Cake.create({
     title: "Baseball Birthday",
-    img: "https://i.imgur.com/DXE41VM.png",
+    img: "http://i.imgur.com/EFCExzU.png?1",
     description:["sport", "field", "ball", "flat art", "1/4 sheet"]
 })
 Cake.create({
     title: "Party at the Beach",
-    img: "http://i.imgur.com/oBqB9eG.png",
+    img: "http://i.imgur.com/oBqB9eG.png?1",
     description:["beach", "party", "picnic", "sand", "two tier", "sculpted"]
 })
 Cake.create({
