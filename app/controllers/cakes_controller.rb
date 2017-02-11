@@ -1,5 +1,5 @@
 class CakesController < ApplicationController
-  before_action :set_cake, only: [:show, :update, :destroy]
+  before_action :set_cake, only: [:show, :update, :destroy, :create]
 
   # GET /cakes
   def index
@@ -10,12 +10,15 @@ class CakesController < ApplicationController
 
   # GET /cakes/1
   def show
+      @cakes = Cake.all
+
     cake = Cake.where(user_id: params[:user_id], id: params[:id])
     render json: cake
   end
 
   # POST /cakes
   def create
+
     cake = Cake.new(cake_params)
     cake.user_id = params[:user_id]
 
@@ -29,8 +32,9 @@ class CakesController < ApplicationController
 
   # PATCH/PUT /cakes/1
   def update
+
     cake = Cake.where(user_id: params[:user_id])
-    cake.update(cake_params)
+    # cake.update(cake_params)
     if cake.update(cake_params)
       render json: cake
     else
