@@ -16,8 +16,10 @@ class CreationsController < ApplicationController
 
   # POST /creations
   def create
+    cake = Cake.new(creation_params)
     creation = Creation.new(creation_params)
     creation.user_id = params[:user_id]
+    creation.cake_id = params[:cake_id]
 
     if creation.save
       render json: creation, status: 200
@@ -52,6 +54,9 @@ class CreationsController < ApplicationController
 
     # Only allow a trusted parameter "white list" through.
     def creation_params
-      params.require(:creation).permit(:title, :user_id, :cake, :img, :description, :username, :password, :password_digest)
+      params.require(:creation).permit(:title, :user_id, :cake_id, :title, :img, :description )
     end
+    # def cake_params
+    #   params.require(:cake).permit()
+    # end
 end

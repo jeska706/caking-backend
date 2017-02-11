@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
     before_action :set_user, only: [:show, :update, :destroy]
     before_action :authenticate_token, except: [:login, :create]
-    before_action :authorize_user, except: [:login, :create, :index]
+    before_action :authorize_user, except: [:login, :create, :index, :update]
     wrap_parameters :user, include: [ :username, :password, :password_confirmation,  :password_digest]
 
     def login
