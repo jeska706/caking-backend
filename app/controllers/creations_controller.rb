@@ -52,6 +52,6 @@ class CreationsController < ApplicationController
 
     # Only allow a trusted parameter "white list" through.
     def creation_params
-      params.require(:creation).permit(:title, :user_id)
+      params.require(:creation).permit(:title, :user_id, :cake, :img, :description, :username, :password, :password_digest)
     end
 end

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170210012750) do
+ActiveRecord::Schema.define(version: 20170210210211) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -31,6 +31,17 @@ ActiveRecord::Schema.define(version: 20170210012750) do
     t.integer  "cake_id"
   end
 
+  create_table "galleries", force: :cascade do |t|
+    t.integer  "cake_id"
+    t.integer  "user_id"
+    t.integer  "creation_id"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+    t.index ["cake_id"], name: "index_galleries_on_cake_id", using: :btree
+    t.index ["creation_id"], name: "index_galleries_on_creation_id", using: :btree
+    t.index ["user_id"], name: "index_galleries_on_user_id", using: :btree
+  end
+
   create_table "users", force: :cascade do |t|
     t.string   "username"
     t.string   "password_digest"
@@ -38,4 +49,7 @@ ActiveRecord::Schema.define(version: 20170210012750) do
     t.datetime "updated_at",      null: false
   end
 
+  add_foreign_key "galleries", "cakes"
+  add_foreign_key "galleries", "creations"
+  add_foreign_key "galleries", "users"
 end

@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  cake: one
+  user: one
+  creation: one
+
+two:
+  cake: two
+  user: two
+  creation: two
