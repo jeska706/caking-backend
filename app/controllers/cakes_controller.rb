@@ -55,6 +55,9 @@ class CakesController < ApplicationController
 
     # Only allow a trusted parameter "white list" through.
     def cake_params
-      params.require(:cake).permit(:title, :img, :description)
+      params.require(:cake).permit(:title, :img, :description, :creation, :user_id, :cake_id, :tags )
+    end
+    def creation_params
+      params.require(:creation).permit(:title, :user_id, :tags, :cake_id, :cake, :img, :description, :username, :password, :password_digest)
     end
 end
