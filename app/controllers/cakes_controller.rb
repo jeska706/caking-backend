@@ -11,7 +11,7 @@ class CakesController < ApplicationController
   # GET /cakes/1
   def show
     # cake = Cake.where(user_id: params[:user_id], id: params[:id])
-    render json: cake
+    render json: @cake
   end
 
   # POST /cakes
