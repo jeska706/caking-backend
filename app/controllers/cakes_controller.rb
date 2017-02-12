@@ -10,14 +10,16 @@ class CakesController < ApplicationController
 
   # GET /cakes/1
   def show
-    # cake = Cake.where(user_id: params[:user_id], id: params[:id])
-    render json: @cake
+    cake = Cake.where(user_id: params[:user_id], id: params[:id])
+    render json: cake
   end
 
   # POST /cakes
   def create
     cake = Cake.new(cake_params)
     # cake.user_id = params[:user_id]
+    # cake.user_id = Cake.where(user_id: params[:user_id])
+
 
     if cake.save
       render json: cake, status: 200
@@ -29,8 +31,8 @@ class CakesController < ApplicationController
 
   # PATCH/PUT /cakes/1
   def update
-    # cake = Cake.where(user_id: params[:user_id])
-    # cake.update(cake_params)
+    cake = Cake.where(user_id: params[:user_id])
+    cake.update(cake_params)
 
     if cake.update(cake_params)
       render json: cake
@@ -41,13 +43,14 @@ class CakesController < ApplicationController
 
   # DELETE /cakes/1
   def destroy
-    @cake.destroy
+    cake.destroy
   end
 
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_cake
-      @cake = Cake.find(params[:id])
+    cake = Cake.where(user_id: params[:user_id])
+    #   cake = Cake.find(params[:id])
     end
 
     # Only allow a trusted parameter "white list" through.

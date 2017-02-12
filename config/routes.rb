@@ -1,11 +1,12 @@
 Rails.application.routes.draw do
     resources :galleries
-    resources :cakes, only: [:index, :show]
+    resources :cakes
     resources :users do
-        resources :cakes
-        resources :creations
         collection do
             post '/login', to: 'users#login'
+        end
+        resources :creations do
+            resources :cakes
         end
     end
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
