@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170212173637) do
+ActiveRecord::Schema.define(version: 20170214033415) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -21,18 +21,17 @@ ActiveRecord::Schema.define(version: 20170212173637) do
     t.string   "description", default: [],              array: true
     t.datetime "created_at",               null: false
     t.datetime "updated_at",               null: false
-    t.integer  "cake_id"
+    t.integer  "user_id"
+    t.index ["user_id"], name: "index_cakes_on_user_id", using: :btree
   end
 
   create_table "creations", force: :cascade do |t|
     t.string   "title"
-    t.datetime "created_at",               null: false
-    t.datetime "updated_at",               null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.integer  "user_id"
     t.integer  "cake_id"
     t.string   "img"
-    t.string   "tags",        default: [],              array: true
-    t.string   "description"
   end
 
   create_table "galleries", force: :cascade do |t|
@@ -51,9 +50,13 @@ ActiveRecord::Schema.define(version: 20170212173637) do
     t.string   "password_digest"
     t.datetime "created_at",      null: false
     t.datetime "updated_at",      null: false
+    t.integer  "cakes_id"
+    t.index ["cakes_id"], name: "index_users_on_cakes_id", using: :btree
   end
 
+  add_foreign_key "cakes", "users"
   add_foreign_key "galleries", "cakes"
   add_foreign_key "galleries", "creations"
   add_foreign_key "galleries", "users"
+  add_foreign_key "users", "cakes", column: "cakes_id"
 end
