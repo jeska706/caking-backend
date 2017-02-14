@@ -1,5 +1,8 @@
 class CakesController < ApplicationController
   before_action :set_cake, only: [:show, :update, :destroy, :create]
+  # wrap_parameters :cake, include: [ :user_id, :cake_id, :title,  :img, :description]
+  wrap_parameters :user, include: [ :username, :password, :password_confirmation,  :password_digest]
+
 
   # GET /cakes
   def index
@@ -55,6 +58,6 @@ class CakesController < ApplicationController
 
     # Only allow a trusted parameter "white list" through.
     def cake_params
-      params.require(:cake).permit(:title, :img, :description)
+      params.fetch(:cake, {}).permit(:title, :img, :description, :user_id, :creation_id)
     end
 end
