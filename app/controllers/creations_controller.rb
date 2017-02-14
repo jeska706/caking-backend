@@ -1,6 +1,6 @@
 class CreationsController < ApplicationController
   before_action :set_creation, only: [:show, :update, :destroy]
-  # wrap_parameters :creation, include: [ :user_id, :cake_id, :title,  :img, :description, :tags]
+  wrap_parameters :creation, include: [ :user_id, :cake_id, :title,  :img, :description, :tags, :cake]
 
 
   # GET /creations
@@ -18,9 +18,9 @@ class CreationsController < ApplicationController
 
   # POST /creations
   def create
+    #   @creation = Creation.new(creation_params)
     creation = Creation.new(creation_params)
     creation.user_id = params[:user_id]
-
     if creation.save
       render json: creation, status: 200
     else
@@ -32,7 +32,7 @@ class CreationsController < ApplicationController
   def update
     creation = Creation.where(user_id: params[:user_id])
     creation.update(creation_params)
-
+    # @cake = Cake.new.where(user_id: params[:user_id])
     if creation.update(creation_params)
       render json: creation
     else
@@ -49,16 +49,23 @@ class CreationsController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_creation
-    #   creation = Creation.find(params[:id])
-      creation = Creation.where(user_id: params[:user_id])
+      creation = Creation.find(params[:id])
+    #   creation = Creation.where(user_id: params[:user_id])
     #    Creation.where(user_id: params[:user_id], id: params[:id], cake_id: params[:cake_id])
     end
 
     # Only allow a trusted parameter "white list" through.
-    def creation_params
-      params.require(:creation).permit(:title, :user_id, :tags, :cake_id, :cake, :img, :description, :username, :password, :password_digest)
-    end
+    # def creation_params
+    #   params.require(:creation).permit(:title, :user_id, :cake_id,  :img, :tags, :description, :cake, :creation_id)
+    # end
+    # def cake_params
+    #   params.require(:cake).permit(:title, :img, :description, :creation, :user_id, :cake_id, :tags)
+    # end
+
     def cake_params
-      params.require(:cake).permit(:title, :img, :description)
+      params.fetch(:cake, {}).permit(:title, :img, :description, :creation, :user_id, :cake_id, :tags )
+    end
+    def creation_params
+      params.fetch(:creation, {}).permit(:title, :user_id, :tags, :cake_id, :cake, :img, :description)
     end
 end
