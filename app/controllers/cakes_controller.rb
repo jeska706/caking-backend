@@ -1,5 +1,5 @@
 class CakesController < ApplicationController
-  before_action :set_cake, only: [:show, :update, :destroy, :create]
+  before_action :set_cake, only: [:show, :update, :destroy, :create, :index]
   # wrap_parameters :cake, include: [ :user_id, :cake_id, :title,  :img, :description]
   wrap_parameters :user, include: [ :username, :password, :password_confirmation,  :password_digest]
 
@@ -21,7 +21,7 @@ class CakesController < ApplicationController
   def create
     cake = Cake.new(cake_params)
     # cake.user_id = params[:user_id]
-    # cake.user_id = Cake.where(user_id: params[:user_id])
+    cake.user_id = Cake.where(user_id: params[:user_id])
 
 
     if cake.save
@@ -58,6 +58,9 @@ class CakesController < ApplicationController
 
     # Only allow a trusted parameter "white list" through.
     def cake_params
-      params.fetch(:cake, {}).permit(:title, :img, :description, :user_id, :creation_id)
+    #   params.fetch(:cake, {}).permit(:title, :img, :description, :user_id, :creation_id)
+    params.require(:cake).permit(:title, :img, :description, :user_id, :cake_id)
+    # params.require(:user).permit(:username, :password, :password_digest, :password_confirmation)
+
     end
 end
