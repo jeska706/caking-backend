@@ -8,11 +8,19 @@
 Rails.application.config.middleware.insert_before 0, Rack::Cors do
     allow do
 
-        origins 'https://caking.herokuapp.com', 'localhost:2043', '*'
+        origins 'localhost:2043', 'https://caking.herokuapp.com/'
 
         resource '*',
             headers: :any,
             methods: [:get, :post, :put, :patch, :delete, :options, :head]
         end
+        
+    allow do
 
+        origins '*'
+
+        resource '*',
+            headers: :any,
+            methods: [:get, :options, :head]
+        end
 end
