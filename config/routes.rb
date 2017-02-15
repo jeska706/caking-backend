@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
     root 'welcome#index'
-    resources :galleries
+    # resources :galleries
     resources :cakes
     resources :users do
         collection do
