@@ -20,6 +20,7 @@ gem 'puma', '~> 3.0'
 gem 'bcrypt', '~> 3.1.7'
 gem 'dotenv-rails', '~> 2.1', '>= 2.1.1'
 gem 'jwt'
+ruby '2.2.6'
 # gem 'faker'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
