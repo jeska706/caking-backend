@@ -17,6 +17,7 @@
 ##User's Stories
 -   When a user linked to the page they have the option to create and account, login, or go straight to the cake gallery.
 -   If an account is created a "user's page" will show. Once signed in a user can add cakes to the gallery, logout, and delete their account.
+
 ##Future features:
 -   A user can create a cake design, edit the design, save it to their own gallery, and or send it to a bakery.
 -   A user view their gallery, edit their gallery, delete design off their gallery
