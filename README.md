@@ -3,9 +3,10 @@
 
 <hr>
 
-This project is the idea I came to General Assembly with. It's not fully functional but once completed it will be a full CRUD cake inspiration application.
-Live sign [Heroku](https://caking-api.herokuapp.com/)
-[Frontend Repo site](https://github.com/jeska706/caking-frontend), [hosted link](https://caking.herokuapp.com/)
+##This project is the idea I came to General Assembly with. It's not fully functional but once completed it will be a full CRUD cake inspiration application.
+- [Live site](https://caking-api.herokuapp.com/)
+- [Frontend Repo site](https://github.com/jeska706/caking-frontend)
+- [hosted link](https://caking.herokuapp.com/)
 
 ##Project Inspiration/Theme
 ![theme](https://cloud.githubusercontent.com/assets/22794560/23006155/6d855c80-f3bd-11e6-950a-715dff08d735.jpg)
