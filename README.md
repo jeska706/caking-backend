@@ -5,8 +5,7 @@
 
 ##This project is the idea I came to General Assembly with. It's not fully functional but once completed it will be a full CRUD cake inspiration application.
 - [Live site](https://caking-api.herokuapp.com/)
-- [Frontend Repo site](https://github.com/jeska706/caking-frontend)
-- [hosted link](https://caking.herokuapp.com/)
+- [Frontend Repo site](https://github.com/jeska706/caking-frontend), [Heroku](https://caking.herokuapp.com/)
 
 ##Project Inspiration/Theme
 ![theme](https://cloud.githubusercontent.com/assets/22794560/23006155/6d855c80-f3bd-11e6-950a-715dff08d735.jpg)
@@ -18,11 +17,14 @@
 -   When a user linked to the page they have the option to create and account, login, or go straight to the cake gallery.
 -   If an account is created a "user's page" will show. Once signed in a user can add cakes to the gallery, logout, and delete their account.
 
+
 ##Future features:
 -   A user can create a cake design, edit the design, save it to their own gallery, and or send it to a bakery.
 -   A user view their gallery, edit their gallery, delete design off their gallery
-
-
+-   Add cake to users gallery
+-   Create a cake design, save a cake design, email a cake design
+-   google maps api for bakery search
+-   Auto refresh on data
 
 
 ##Technologies Used
@@ -35,18 +37,11 @@
 -   CORS/Authentication with JWT
 
 
-
-##Future Features
--   Add cake to users gallery
--   Create a cake design, save a cake design, email a cake design
--   google maps api for bakery search
--   Auto refresh on data
-
-
 ##Creation Canvas
 [Creation Canvas](https://github.com/jeska706/canvasSVG), which was adapted from [LisaBee224](https://github.com/LisaBee224/coloring_book).
 <img width="629" alt="screen shot 2017-02-15 at 9 31 51 pm" src="https://cloud.githubusercontent.com/assets/22794560/23007508/5cebe6e2-f3c6-11e6-8505-96ea83b0d7d7.png">
--   I spent a lot of time researching and developing a cake design canvas, which works perfectly outside of the app, but have not been able to include it currently.
+-   Many hours were spent researching, and developing a cake design canvas. Although it works perfectly outside of the app, I have not been able to incorporate it into the app.
+
 
 ##Issues & Bugs
 -   Once cake is created unshift function breaks code so page needs to be refreshed to show new added cakes.
