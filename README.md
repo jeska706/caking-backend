@@ -39,7 +39,7 @@ Future features:
 -   Create a cake design, save a cake design, email a cake design
 -   google maps api for bakery search
 -   Auto refresh on data
-
+<img width="629" alt="screen shot 2017-02-15 at 9 31 51 pm" src="https://cloud.githubusercontent.com/assets/22794560/23007508/5cebe6e2-f3c6-11e6-8505-96ea83b0d7d7.png">
 
 ##Issues & Bugs
 [Creation Canvas](https://github.com/jeska706/canvasSVG), which was adapted from [LisaBee224](https://github.com/LisaBee224/coloring_book).
