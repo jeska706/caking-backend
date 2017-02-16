@@ -3,7 +3,7 @@ class CakesController < ApplicationController
 
   # GET /cakes
   def index
-    @cakes = Cake.all
+    @cakes = Cake.all.reverse
 
     render json: @cakes
   end
